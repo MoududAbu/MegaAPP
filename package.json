@@ -1,0 +1,26 @@
+{
+  "name": "megaapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoududAbu/MegaAPP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoududAbu/MegaAPP/issues"
+  },
+  "homepage": "https://github.com/MoududAbu/MegaAPP#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongodb": "^2.2.31",
+    "nodemon": "^1.12.1",
+    "pug": "^2.0.0-rc.4"
+  }
+}
