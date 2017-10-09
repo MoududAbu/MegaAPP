@@ -1,25 +1,25 @@
+var mongodb= require('mongodb');
+var MongoClient= mongodb.MongoClient;
+var URL = 'mongodb://127.0.0.1:27017/mega_app';
 
-const MongoClient = require( 'mongodb' ).MongoClient;
+var db;
+var error;
+var waiting = []; // Callbacks waiting for the connection to be made
 
-var _db;
+MongoClient.connect(URL,function(err,database){
+    error = err;
+    db = database;
 
-module.exports = {
+    waiting.forEach(function(callback) {
+        callback(err, database);
+    });
+});
 
-    connectToServer: function( callback ) {
-        MongoClient.connect( "mongodb://localhost:27017/mega_app", function( err, db ) {
-            _db = db;
-            return callback( err );
-        } );
-    },
-
-    getDb: function() {
-        return _db;
+module.exports = function(callback) {
+    if (db || error) {
+        callback(error, db);
+    } else {
+        waiting.push(callback);
     }
-};
-
-
-
-
-
-
+}
 
