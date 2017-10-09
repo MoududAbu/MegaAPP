@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MoududAbu/MegaAPP#readme",
   "dependencies": {
+    "body-parser-json": "^1.9.2",
     "express": "^4.16.1",
     "mongodb": "^2.2.31",
     "nodemon": "^1.12.1",
